@@ -1,5 +1,12 @@
 package onedigitalinnovation.gof;
 
+import onedigitalinnovation.gof.SingletonEager;
+import onedigitalinnovation.gof.SingletonLazy;
+import onedigitalinnovation.gof.Strategy.Comportamento;
+import onedigitalinnovation.gof.Strategy.ComportamentoAgressivo;
+import onedigitalinnovation.gof.Strategy.ComportamentoDefinitivo;
+import onedigitalinnovation.gof.Strategy.ComportamentoNormal;
+
 public class Test {
 
 	public static void main(String[] args) {
@@ -20,7 +27,20 @@ public class Test {
 		System.out.println(lazyHolder);
 		lazyHolder = SingletonLazyHolder.getInstancia();
 		System.out.println(lazyHolder);
-		
+ 
+		// Strategy
+		Comportamento defenviso = new ComportamentoDefinitivo();
+		Comportamento normal = new ComportamentoNormal();
+		Comportamento agressivo = new ComportamentoAgressivo();
+
+		Robo robo = new Robo();
+		robo.setComportamento(normal);
+		robo.mover();
+		robo.mover();
+		robo.setComportamento(defenviso);
+		robo.mover();
+		robo.setComportamento(agressivo);
+		robo.mover();
 		
 	
 	}
